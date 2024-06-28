@@ -1,0 +1,81 @@
+openapi: 3.0.3
+info:
+  title: Laravel
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:8000'
+paths:
+  /api/user:
+    get:
+      summary: ''
+      operationId: getApiUser
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+  /api/login:
+    post:
+      summary: Login
+      operationId: login
+      description: 'Segue um exemplo de sucesso'
+      parameters: []
+      responses:
+        200:
+          description: 'Logado com sucesso'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  data:
+                    token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzE5NjE3NDk4LCJleHAiOjE3MTk2MjEwOTgsIm5iZiI6MTcxOTYxNzQ5OCwianRpIjoiSEJBZjZDUkZGVTZGU1N2WSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.m95EIBJB_DcMdM5TTVmQYHucHH5Aimh0lVeYxz7WSbA
+                    token_type: bearer
+                    expires_in: 3600
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      token:
+                        type: string
+                        example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzE5NjE3NDk4LCJleHAiOjE3MTk2MjEwOTgsIm5iZiI6MTcxOTYxNzQ5OCwianRpIjoiSEJBZjZDUkZGVTZGU1N2WSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.m95EIBJB_DcMdM5TTVmQYHucHH5Aimh0lVeYxz7WSbA
+                      token_type:
+                        type: string
+                        example: bearer
+                      expires_in:
+                        type: integer
+                        example: 3600
+        401:
+          description: 'Não autorizado'
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+tags:
+  -
+    name: Endpoints
+    description: ''

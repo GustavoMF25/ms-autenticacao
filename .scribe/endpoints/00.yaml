@@ -1,0 +1,103 @@
+name: Endpoints
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/user
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: 'http://localhost:3000'
+          access-control-allow-credentials: 'true'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/login
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: Login
+      description: 'Segue um exemplo de sucesso'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data": {"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzE5NjE3NDk4LCJleHAiOjE3MTk2MjEwOTgsIm5iZiI6MTcxOTYxNzQ5OCwianRpIjoiSEJBZjZDUkZGVTZGU1N2WSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.m95EIBJB_DcMdM5TTVmQYHucHH5Aimh0lVeYxz7WSbA","token_type": "bearer","expires_in": 3600}}'
+        headers: []
+        description: 'Logado com sucesso'
+        custom: []
+      -
+        status: 401
+        content: '{"message": "Unauthenticated."}'
+        headers: []
+        description: 'Não autorizado'
+        custom: []
+    responseFields:
+      A:
+        name: A
+        description: 'requisição foi realizada com sucesso.'
+        required: false
+        example: null
+        type: ''
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      O:
+        name: O
+        description: 'usuario não está autorizado para realizar o login'
+        required: false
+        example: null
+        type: ''
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
