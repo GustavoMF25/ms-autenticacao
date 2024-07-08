@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\api\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,17 +25,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
  * @response 401 scenario="Não autorizado" {"message": "Unauthenticated."}
  * @responseField O usuario não está autorizado para realizar o login
  */
-Route::post('/login', function (Request $request) {
-    $credentials = $request->only(['email', 'password']);
-    if (!$token = auth('api')->attempt($credentials)) {
-        abort(401, 'Não autorizado!');
-    }
 
-    return response()->json([
-        "data" => [
-            'token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
-        ]
-    ]);
-});
+
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
+Route::post('logout', [AuthController::class, 'logout']);
+Route::get('user', [AuthController::class, 'getAuthenticatedUser']);
